@@ -7,7 +7,7 @@ package Tema01;
  * @author IvanSM
  *
  */
-public class LanzadorProcesos {
+public class LanzadorProcesosRuta {
 
 	public void ejecutar(String ruta) {
 		ProcessBuilder pb;
@@ -26,7 +26,7 @@ public class LanzadorProcesos {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String ruta = "C:\\Program Files\\Mozilla Firefox\\firefox.exe";
-		LanzadorProcesos lp = new LanzadorProcesos();
+		LanzadorProcesosRuta lp = new LanzadorProcesosRuta();
 		lp.ejecutar(ruta);
 		System.out.println("Finalizado");
 	}
