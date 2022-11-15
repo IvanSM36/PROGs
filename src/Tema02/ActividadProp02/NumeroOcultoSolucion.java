@@ -14,25 +14,32 @@ public class NumeroOcultoSolucion {
 	private boolean adivinado = false;
 	private int numero = 0;
 	private ArrayList<HiloAdivinoSolucion> adivinos;
+	
 	public static void main(String[] args) {
+		
 		HiloAdivinoSolucion HiloAdivinoSolucion=null;
 		NumeroOcultoSolucion NumeroOcultoSolucion = new NumeroOcultoSolucion();
 		long tiempoEmpleado=System.currentTimeMillis();
 		Random rnd = new Random();
-		//se genera un número oculto entre 0 y 100, y se guarda
+		
+		//Se genera un número oculto entre 0 y 100, y se guarda
 		NumeroOcultoSolucion.numero = rnd.nextInt(101);
-		//se crea un array con 10 adivinos y se comienza el proceso
+		
+		//Se crea un array con 10 adivinos y se comienza el proceso
 		//de adivinación
 		NumeroOcultoSolucion.adivinos = new ArrayList<HiloAdivinoSolucion>();
 		for(int i=0;i<10;i++) {
 			NumeroOcultoSolucion.adivinos.add(new HiloAdivinoSolucion(NumeroOcultoSolucion,i+1));
 			NumeroOcultoSolucion.adivinos.get(i).start();
 		}
+		
 		//mientras no se adivine el número el hilo principal debe esperar
 		while(!NumeroOcultoSolucion.adivinado);
-		//se obtiene el tiempo empleado en adivinar el número
+		
+		//Se obtiene el tiempo empleado en adivinar el número
 		tiempoEmpleado = System.currentTimeMillis()-tiempoEmpleado;
-		//se obtiene el hilo (adivino) que ha adivinado el número
+		
+		//Se obtiene el hilo (adivino) que ha adivinado el número
 		/* Lo siguiente usa expresiones lambda, es posible que esto te diese
 		 * problemas de compilación. Lo cambio por las líneas que le siguen
 		 * HiloAdivinoSolucion HiloAdivinoSolucion = (HiloAdivinoSolucion) NumeroOcultoSolucion.adivinos.stream()
@@ -43,13 +50,15 @@ public class NumeroOcultoSolucion {
 				break;
 			}
 		}
-		//se muestra información completa sobre el resultado de la 
+		
+		//Se muestra información completa sobre el resultado de la 
 		//adivinación
-		System.out.println("El " + HiloAdivinoSolucion.getName() + " ha adivinado el número," +
-		" ha necesitado " + HiloAdivinoSolucion.getIntentos() + " intentos. " +
-		"Se ha tardado " + (float)(tiempoEmpleado/1000F) + " segundos en acertar el número oculto " + 
-				NumeroOcultoSolucion.numero);
+		System.out.println("El " + HiloAdivinoSolucion.getName() + " ha adivinado el numero." +
+		"\nha necesitado " + HiloAdivinoSolucion.getIntentos() + " intentos." +
+		"\nSe ha tardado " + (float)(tiempoEmpleado/1000F) + " segundos en acertar el numero oculto " + 
+				NumeroOcultoSolucion.numero + ".");
 	}
+	
 	/**
 	 * Este método será llamado por cada hilo adivino para realizar cada
 	 * intento de adivinación. El método está sincronizado, quiere decir
