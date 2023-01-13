@@ -1,4 +1,4 @@
-package Tema02.ActividadProp02;
+package PrimerTrimestre.Tema02.ActividadProp02;
 
 import java.util.ArrayList;
 import java.util.Random;

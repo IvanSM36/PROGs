@@ -1,4 +1,4 @@
-package Tema02;
+package PrimerTrimestre.Tema02;
 
 public class LanzadorHilos {
 

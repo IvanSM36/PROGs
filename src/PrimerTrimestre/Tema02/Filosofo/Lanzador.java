@@ -1,4 +1,4 @@
-package Tema02.Filosofo;
+package PrimerTrimestre.Tema02.Filosofo;
 
 public class Lanzador {
 	public static void main(String[] args) {

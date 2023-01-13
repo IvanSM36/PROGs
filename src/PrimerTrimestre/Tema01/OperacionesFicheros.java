@@ -1,4 +1,4 @@
-package Tema01;
+package PrimerTrimestre.Tema01;
 
 import java.io.BufferedReader;
 import java.io.File;

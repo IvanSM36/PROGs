@@ -1,4 +1,4 @@
-package Tema02;
+package PrimerTrimestre.Tema02;
 
 public class LanzadorHilos02 {
 	public static void main(String[] args) {

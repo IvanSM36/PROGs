@@ -1,4 +1,4 @@
-package Tema02.Filosofo;
+package PrimerTrimestre.Tema02.Filosofo;
 
 import java.util.Random;
 
