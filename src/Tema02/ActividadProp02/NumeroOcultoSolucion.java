@@ -25,15 +25,14 @@ public class NumeroOcultoSolucion {
 		//Se genera un número oculto entre 0 y 100, y se guarda
 		NumeroOcultoSolucion.numero = rnd.nextInt(101);
 		
-		//Se crea un array con 10 adivinos y se comienza el proceso
-		//de adivinación
+		//Se crea un array con 10 adivinos y se comienza el proceso de adivinación
 		NumeroOcultoSolucion.adivinos = new ArrayList<HiloAdivinoSolucion>();
 		for(int i=0;i<10;i++) {
 			NumeroOcultoSolucion.adivinos.add(new HiloAdivinoSolucion(NumeroOcultoSolucion,i+1));
 			NumeroOcultoSolucion.adivinos.get(i).start();
 		}
 		
-		//mientras no se adivine el número el hilo principal debe esperar
+		//Mientras no se adivine el número el hilo principal debe esperar
 		while(!NumeroOcultoSolucion.adivinado);
 		
 		//Se obtiene el tiempo empleado en adivinar el número
@@ -42,8 +41,7 @@ public class NumeroOcultoSolucion {
 		//Se obtiene el hilo (adivino) que ha adivinado el número
 		/* Lo siguiente usa expresiones lambda, es posible que esto te diese
 		 * problemas de compilación. Lo cambio por las líneas que le siguen
-		 * HiloAdivinoSolucion HiloAdivinoSolucion = (HiloAdivinoSolucion) NumeroOcultoSolucion.adivinos.stream()
-				.filter(adivino -> adivino.esAdivino()).toArray()[0];*/
+		 * HiloAdivinoSolucion HiloAdivinoSolucion = (HiloAdivinoSolucion) NumeroOcultoSolucion.adivinos.stream().filter(adivino -> adivino.esAdivino()).toArray()[0];*/
 		for(HiloAdivinoSolucion adivino:NumeroOcultoSolucion.adivinos) {
 			if(adivino.esAdivino()) {
 				HiloAdivinoSolucion = adivino;
@@ -51,8 +49,7 @@ public class NumeroOcultoSolucion {
 			}
 		}
 		
-		//Se muestra información completa sobre el resultado de la 
-		//adivinación
+		//Se muestra información completa sobre el resultado de la adivinación
 		System.out.println("El " + HiloAdivinoSolucion.getName() + " ha adivinado el numero." +
 		"\nha necesitado " + HiloAdivinoSolucion.getIntentos() + " intentos." +
 		"\nSe ha tardado " + (float)(tiempoEmpleado/1000F) + " segundos en acertar el numero oculto " + 
